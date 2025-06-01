@@ -32,9 +32,8 @@ def system_message() -> SystemMessage:
                     ✅ Requirements — Prerequisites needed to run the project.
                     🤝 Contributing — Guidelines for contributing to the project.
                     📄 Documentation — Links or instructions for more detailed documentation.
-                    📊 Stats — Badges for build status, test coverage, etc.
                     ❤️ Acknowledgements — Credits and acknowledgements.
-                    📝 Changelog — A summary of changes in each version.
+                    📝 Changelog — A summary of changes based in the 'Retrieves the repository's commit history'.
 
                 ✅ Additional Required Sections:
                     🗂️ Repository Structure — Include the complete structure of the repository (folders, files). For each part, provide a brief explanation of its purpose and function within the project.
