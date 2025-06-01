@@ -1,8 +1,11 @@
 from langgraph.graph import MessagesState, START, END, StateGraph
 from langgraph.prebuilt import tools_condition, ToolNode
 from langchain_openai import ChatOpenAI
-from tools.tool_util import list_repo_contents, read_content
+from auth.authentication_setup import _set_env
+from tools.tool_util import fetch_repo_structure, get_repo_commits, get_contributors, get_repo_info, get_languages, get_tags, get_branches, get_issues, get_pull_requests, get_releases
 
+# Set environment variables for OpenAI API
+_set_env('OPENAI_API_KEY')
 
 def configure_llm_with_tools(model_name: str) -> tuple:
     """
@@ -12,7 +15,7 @@ def configure_llm_with_tools(model_name: str) -> tuple:
     Returns:
         tuple: A tuple containing the configured LLM model and the list of tools.
     """
-    tools = [list_repo_contents, read_content]
+    tools = [fetch_repo_structure, get_repo_commits, get_contributors, get_repo_info, get_languages, get_tags, get_branches, get_issues, get_pull_requests, get_releases]
     llm = ChatOpenAI(model_name=model_name).bind_tools(tools)
     return llm, tools
 
@@ -53,7 +56,7 @@ def build_agent_graph(base_agent_fn, tools) -> StateGraph:
     return graph
 
 
-def main_agent(model_name: str = 'gpt-4o-mini') -> StateGraph:
+def main_agent(model_name: str = 'gpt-3.5-turbo-0125') -> StateGraph:
     """
     Creates a state graph agent that interacts with tools to gather information about a GitHub repository.
     This agent uses a base agent function to process messages and a set of tools to gather repository contents.
