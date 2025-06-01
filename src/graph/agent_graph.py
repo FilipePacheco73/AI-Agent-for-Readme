@@ -56,7 +56,7 @@ def build_agent_graph(base_agent_fn, tools) -> StateGraph:
     return graph
 
 
-def main_agent(model_name: str = 'gpt-3.5-turbo-0125') -> StateGraph:
+def main_agent(model_name: str = 'gpt-4o-mini') -> StateGraph:
     """
     Creates a state graph agent that interacts with tools to gather information about a GitHub repository.
     This agent uses a base agent function to process messages and a set of tools to gather repository contents.

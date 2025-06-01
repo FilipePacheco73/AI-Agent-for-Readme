@@ -10,7 +10,7 @@ _set_env('OPENAI_API_KEY')
 # Test OpenAI API key setup
 def test_openai_api_key():
     try:
-        llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125')
+        llm = ChatOpenAI(model_name='gpt-4o-mini')
         response = llm.invoke('Hello, world!')
         print(f"OpenAI API key is set and working: {response.content}")
     except Exception as e:
