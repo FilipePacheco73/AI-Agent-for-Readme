@@ -39,19 +39,19 @@ def fetch_repo_structure(owner: str, repo: str, path: str = '') -> dict:
             }
 
             if item['type'] == 'dir':
-                # Recursivamente busca o conteúdo do diretório
+                # Recursively searches the contents of the directory
                 item_data['contents'] = fetch_repo_structure(owner, repo, item['path'])
 
             elif item['type'] == 'file':
                 filename = item['name']
                 _, ext = os.path.splitext(filename)
 
-                # Verifica se deve ler o conteúdo
+                # Check whether to read the content
                 if ext.lower() in readable_extensions or filename in readable_filenames:
                     raw_url = f'https://raw.githubusercontent.com/{owner}/{repo}/main/{item["path"]}'
                     file_response = requests.get(raw_url, headers=headers)
                     if file_response.status_code == 200:
-                        item_data['content_preview'] = file_response.text[:10000]  # Limite de 10k chars
+                        item_data['content_preview'] = file_response.text[:10000]  # 10k chars limit
                     else:
                         item_data['content_preview'] = f"Failed to fetch content: {file_response.status_code}"
 
