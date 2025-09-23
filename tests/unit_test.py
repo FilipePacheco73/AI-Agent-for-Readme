@@ -1,4 +1,10 @@
 import json
+import sys
+import os
+
+# Add the src directory to the Python path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+
 from langchain_openai import ChatOpenAI
 from auth.authentication_setup import _set_env
 from tools.tool_util import fetch_repo_structure, get_repo_commits, get_contributors, get_repo_info, get_languages, get_tags, get_branches, get_issues, get_pull_requests, get_releases
