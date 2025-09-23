@@ -1,15 +1,19 @@
-import sys
-import os
-
-# Setup project path for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-from path_setup import setup_project_path
-
 from langgraph.graph import MessagesState, START, END, StateGraph
 from langgraph.prebuilt import tools_condition, ToolNode
 from langchain_openai import ChatOpenAI
-from auth.authentication_setup import _set_env
-from tools.tool_util import fetch_repo_structure, get_repo_commits, get_contributors, get_repo_info, get_languages, get_tags, get_branches, get_issues, get_pull_requests, get_releases
+from src.auth.authentication_setup import _set_env
+from src.tools.tool_util import (
+    fetch_repo_structure,
+    get_repo_commits,
+    get_contributors,
+    get_repo_info,
+    get_languages,
+    get_tags,
+    get_branches,
+    get_issues,
+    get_pull_requests,
+    get_releases,
+)
 
 # Set environment variables for OpenAI API
 _set_env('OPENAI_API_KEY')
