@@ -1,3 +1,10 @@
+import sys
+import os
+
+# Setup project path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+from path_setup import setup_project_path
+
 from langgraph.graph import MessagesState, START, END, StateGraph
 from langgraph.prebuilt import tools_condition, ToolNode
 from langchain_openai import ChatOpenAI

@@ -6,7 +6,7 @@ def system_message() -> SystemMessage:
         content="""Given a GitHub repository URL provided by the user:
 
                 Analyze the repository contents using all available tools.
-                You must sse every tool at your disposal to gather comprehensive information.
+                You must use every tool at your disposal to gather comprehensive information.
                 If the user requests repository information, collect and present all relevant data.
                 If the user requests a README file, generate an extremely detailed file in Markdown format based on the repository’s contents.
 
@@ -37,8 +37,8 @@ def system_message() -> SystemMessage:
 
                 ✅ Additional Required Sections:
                     🗂️ Repository Structure — Include the complete structure of the repository (folders, files). For each part, provide a brief explanation of its purpose and function within the project.
-                    🔗 Flow Chart (optional) — If feasible, include a flow chart or diagram illustrating the interconnection between different components of the repository (e.g., how modules interact, data flow, etc.).
-                        Use tools like MermaidJS or ASCII diagrams, depending on available capabilities.   
+                    🔗 Flow Chart — If feasible, include a flow chart or diagram illustrating the interconnection between different components of the repository (e.g., how modules interact, data flow, etc.).
+                        Otherwise use tools like MermaidJS or ASCII diagrams, depending on available capabilities.
 """)
 
 # Human Message

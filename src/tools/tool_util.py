@@ -1,5 +1,11 @@
 import os
+import sys
 import requests
+
+# Setup project path for imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+from path_setup import setup_project_path
+
 from auth.authentication_setup import _set_env
 
 # Set up the GitHub token for authentication

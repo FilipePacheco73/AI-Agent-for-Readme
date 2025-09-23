@@ -1,4 +1,5 @@
 import json
+import os
 from datetime import datetime
 
 def log_creation(messages: dict):
@@ -45,5 +46,7 @@ def log_creation(messages: dict):
     log += "=" * 50 + "\n"
 
     # Save the log to a file
-    with open(f"src/logs/agent_log_{current_time}.txt", "w") as f:
+    log_dir = os.path.join(os.path.dirname(__file__))
+    log_path = os.path.join(log_dir, f"agent_log_{current_time}.txt")
+    with open(log_path, "w") as f:
         f.write(log)
